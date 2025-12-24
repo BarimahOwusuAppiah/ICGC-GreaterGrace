@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, spiritual color palette */
+    --background: 40 30% 97%;
+    --foreground: 20 25% 15%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 20 25% 15%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 20 25% 15%;
+
+    /* Dark green - matching logo */
+    --primary: 150 35% 20%;
+    --primary-foreground: 40 30% 97%;
+
+    /* Gold accent - matching logo */
+    --secondary: 45 85% 55%;
+    --secondary-foreground: 20 25% 15%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 20 15% 45%;
+
+    /* Gold accent - matching logo */
+    --accent: 45 85% 55%;
+    --accent-foreground: 20 25% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 150 35% 20%;
+
+    --radius: 0.75rem;
+
+    /* Custom church design tokens - matching logo colors */
+    --gold: 45 85% 55%;
+    --gold-light: 48 90% 70%;
+    --gold-dark: 42 80% 45%;
+    --burgundy: 150 35% 20%;
+    --burgundy-light: 150 30% 30%;
+    --burgundy-dark: 150 40% 15%;
+    --cream: 40 30% 97%;
+    --cream-dark: 40 25% 90%;
+    --forest: 150 35% 20%;
+    --forest-light: 150 30% 30%;
+    --forest-dark: 150 40% 15%;
+
+    /* Gradients - matching logo colors */
+    --gradient-hero: linear-gradient(135deg, hsl(150 40% 15% / 0.9), hsl(150 35% 25% / 0.8));
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 55%), hsl(48 90% 70%));
+    --gradient-warm: linear-gradient(180deg, hsl(40 30% 97%), hsl(40 25% 92%));
+    --gradient-dark: linear-gradient(180deg, hsl(150 40% 15%), hsl(20 25% 10%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(20 25% 15% / 0.1);
+    --shadow-gold: 0 4px 30px -8px hsl(45 85% 55% / 0.4);
+    --shadow-elevated: 0 20px 60px -15px hsl(20 25% 15% / 0.15);
+
+    /* Sidebar */
+    --sidebar-background: 40 25% 95%;
+    --sidebar-foreground: 20 25% 15%;
+    --sidebar-primary: 150 35% 20%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 45 85% 55%;
+    --sidebar-accent-foreground: 20 25% 15%;
+    --sidebar-border: 40 20% 85%;
+    --sidebar-ring: 150 35% 20%;
+  }
+
+  .dark {
+    --background: 20 25% 8%;
+    --foreground: 40 25% 95%;
+
+    --card: 20 20% 12%;
+    --card-foreground: 40 25% 95%;
+
+    --popover: 20 25% 8%;
+    --popover-foreground: 40 25% 95%;
+
+    --primary: 45 85% 55%;
+    --primary-foreground: 20 25% 10%;
+
+    --secondary: 150 30% 30%;
+    --secondary-foreground: 40 25% 95%;
+
+    --muted: 20 15% 18%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 20 25% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 25% 95%;
+
+    --border: 20 15% 20%;
+    --input: 20 15% 20%;
+    --ring: 45 85% 55%;
+
+    --sidebar-background: 20 20% 10%;
+    --sidebar-foreground: 40 25% 95%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 20 25% 10%;
+    --sidebar-accent: 150 30% 30%;
+    --sidebar-accent-foreground: 40 25% 95%;
+    --sidebar-border: 20 15% 20%;
+    --sidebar-ring: 45 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-sans {
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 85% 55%), hsl(48 90% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Animation utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.6s ease-out forwards;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-gold);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--burgundy-light));
+}
