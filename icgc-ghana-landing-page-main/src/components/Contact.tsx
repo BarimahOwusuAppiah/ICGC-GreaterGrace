@@ -48,7 +48,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@icgc.org", "support@icgc.org"],
+      details: ["icgcgreatergrace@gmail.com", "support@icgc.org"],
     },
     {
       icon: Clock,
@@ -62,31 +62,31 @@ const Contact = () => {
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-burgundy to-transparent opacity-50 pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-gold font-medium tracking-widest uppercase mb-4 text-sm">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <p className="text-gold font-medium tracking-widest uppercase mb-3 sm:mb-4 text-xs sm:text-sm">
             Get In Touch
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-cream mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-cream mb-4 sm:mb-6 px-2">
             We'd Love to <span className="text-gradient-gold">Hear From You</span>
           </h2>
-          <p className="text-cream/80 text-lg leading-relaxed">
+          <p className="text-cream/80 text-base sm:text-lg leading-relaxed px-2">
             Have questions about our services, ministries, or how to get
             involved? Reach out to us and we'll be happy to help.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           {/* Contact Form */}
-          <div className="bg-burgundy rounded-3xl p-8 md:p-10 shadow-elevated">
-            <h3 className="font-display text-2xl font-bold text-cream mb-6">
+          <div className="bg-burgundy rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-elevated">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-cream mb-4 sm:mb-6">
               Send Us a Message
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="text-cream/80 text-sm mb-2 block">
+                  <label className="text-cream/80 text-xs sm:text-sm mb-1 sm:mb-2 block">
                     Full Name
                   </label>
                   <Input
@@ -95,12 +95,12 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold"
+                    className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold text-sm"
                     required
                   />
                 </div>
                 <div>
-                  <label className="text-cream/80 text-sm mb-2 block">
+                  <label className="text-cream/80 text-xs sm:text-sm mb-1 sm:mb-2 block">
                     Email Address
                   </label>
                   <Input
@@ -110,13 +110,13 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold"
+                    className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold text-sm"
                     required
                   />
                 </div>
               </div>
               <div>
-                <label className="text-cream/80 text-sm mb-2 block">
+                <label className="text-cream/80 text-xs sm:text-sm mb-1 sm:mb-2 block">
                   Phone Number
                 </label>
                 <Input
@@ -125,11 +125,11 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold"
+                  className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold text-sm"
                 />
               </div>
               <div>
-                <label className="text-cream/80 text-sm mb-2 block">
+                <label className="text-cream/80 text-xs sm:text-sm mb-1 sm:mb-2 block">
                   Your Message
                 </label>
                 <Textarea
@@ -139,31 +139,31 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold resize-none"
+                  className="bg-burgundy-dark/50 border-gold/20 text-cream placeholder:text-cream/50 focus:border-gold resize-none text-sm"
                   required
                 />
               </div>
-              <Button variant="hero" size="lg" type="submit" className="w-full">
+              <Button variant="hero" size="lg" type="submit" className="w-full text-sm sm:text-base">
                 Send Message
               </Button>
             </form>
           </div>
 
           {/* Contact Info */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="bg-burgundy/50 backdrop-blur-sm rounded-2xl p-6 border border-gold/10 hover-lift"
+                className="bg-burgundy/50 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gold/10 hover-lift"
               >
-                <div className="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center mb-4">
-                  <info.icon className="w-6 h-6 text-gold" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gold/20 flex items-center justify-center mb-3 sm:mb-4">
+                  <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
                 </div>
-                <h4 className="text-cream font-semibold text-lg mb-3">
+                <h4 className="text-cream font-semibold text-base sm:text-lg mb-2 sm:mb-3">
                   {info.title}
                 </h4>
                 {info.details.map((detail, dIndex) => (
-                  <p key={dIndex} className="text-cream/70 text-sm">
+                  <p key={dIndex} className="text-cream/70 text-xs sm:text-sm">
                     {detail}
                   </p>
                 ))}

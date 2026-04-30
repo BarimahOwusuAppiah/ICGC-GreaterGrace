@@ -68,22 +68,22 @@ const Header = () => {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-4 flex items-center justify-between">
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-3 group">
+        <NavLink to="/" className="flex items-center gap-2 sm:gap-3 group">
           <div className="flex items-center relative">
             <LogoImage />
           </div>
           <div className="hidden sm:block">
             <h1
-              className={`font-display font-semibold text-lg transition-colors ${
+              className={`font-display font-semibold text-base sm:text-lg transition-colors ${
                 isScrolled ? "text-foreground" : "text-cream"
               }`}
             >
               ICGC
             </h1>
             <p
-              className={`text-xs transition-colors ${
+              className={`text-[10px] sm:text-xs transition-colors ${
                 isScrolled ? "text-muted-foreground" : "text-cream/80"
               }`}
             >
@@ -134,25 +134,25 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden absolute top-full left-0 right-0 bg-background shadow-elevated transition-all duration-300 ${
+        className={`lg:hidden absolute top-full left-0 right-0 bg-background shadow-elevated transition-all duration-300 max-h-[calc(100vh-80px)] overflow-y-auto ${
           isMobileMenuOpen
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-4"
         }`}
       >
-        <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
+        <nav className="container mx-auto px-4 py-4 sm:py-6 flex flex-col gap-3 sm:gap-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.label}
               to={link.to}
-              className="font-medium text-foreground hover:text-gold transition-colors py-2"
+              className="font-medium text-foreground hover:text-gold transition-colors py-2 text-base sm:text-lg"
               activeClassName="text-gold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
             </NavLink>
           ))}
-          <Button variant="hero" size="lg" className="mt-4">
+          <Button variant="hero" size="lg" className="mt-2 sm:mt-4 w-full sm:w-auto text-sm sm:text-base">
             Join Us Sunday
           </Button>
         </nav>

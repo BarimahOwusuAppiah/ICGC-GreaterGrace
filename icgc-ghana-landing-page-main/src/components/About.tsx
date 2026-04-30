@@ -38,9 +38,9 @@ const About = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-12 sm:mb-20">
           {/* Left - Images */}
-          <div className="relative">
+          <div className="relative order-2 lg:order-1">
             <div className="relative z-10">
               <img
                 src={churchImage}
@@ -49,27 +49,27 @@ const About = () => {
               />
             </div>
             {/* Pastor Image Overlay */}
-            <div className="absolute -bottom-8 -right-4 lg:-right-8 w-48 md:w-64 z-20">
+            <div className="absolute -bottom-4 sm:-bottom-8 -right-2 sm:-right-4 lg:-right-8 w-36 sm:w-48 md:w-64 z-20">
               <img
                 src={pastorImage}
                 alt="Greater Grace DR.Rev Philip Adjei Acquah - Founder of ICGC"
-                className="rounded-xl shadow-gold border-4 border-background"
+                className="rounded-xl shadow-gold border-2 sm:border-4 border-background"
               />
-              <div className="absolute -bottom-4 left-4 right-4 bg-burgundy text-cream rounded-lg p-3 text-center shadow-soft">
-                <p className="font-display font-semibold text-sm">Greater Grace Overseer Dr.Rev Philip Adjei Acquah</p>
-                <p className="text-xs text-cream/80">Founder & General Overseer</p>
+              <div className="absolute -bottom-2 sm:-bottom-4 left-2 sm:left-4 right-2 sm:right-4 bg-burgundy text-cream rounded-lg p-2 sm:p-3 text-center shadow-soft">
+                <p className="font-display font-semibold text-xs sm:text-sm">Greater Grace Overseer Dr.Rev Philip Adjei Acquah</p>
+                <p className="text-[10px] sm:text-xs text-cream/80">Founder & General Overseer</p>
               </div>
             </div>
             {/* Decorative */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-gold/20 rounded-full blur-2xl" />
+            <div className="absolute -top-4 -left-4 w-16 sm:w-24 h-16 sm:h-24 bg-gold/20 rounded-full blur-2xl" />
           </div>
 
           {/* Right - Content */}
-          <div>
-            <h3 className="font-display text-3xl font-bold text-foreground mb-6">
+          <div className="order-1 lg:order-2">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
               A Legacy of Faith, Excellence & Empowerment
             </h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
+            <div className="space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
               <p>
                 The International Central Gospel Church was established in 19555
                 with a vision to raise leaders who would transform society
@@ -88,7 +88,7 @@ const About = () => {
                 Ghana, Europe, North America, and Africa.
               </p>
             </div>
-            <Button variant="burgundy" size="lg">
+            <Button variant="burgundy" size="lg" className="w-full sm:w-auto">
               Learn More About Us
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
@@ -96,16 +96,16 @@ const About = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-card rounded-2xl shadow-soft hover-lift"
+              className="text-center p-4 sm:p-6 bg-card rounded-xl sm:rounded-2xl shadow-soft hover-lift"
             >
-              <p className="font-display text-4xl md:text-5xl font-bold text-gradient-gold mb-2">
+              <p className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-1 sm:mb-2">
                 {stat.number}
               </p>
-              <p className="text-muted-foreground font-medium">{stat.label}</p>
+              <p className="text-muted-foreground font-medium text-xs sm:text-sm md:text-base">{stat.label}</p>
             </div>
           ))}
         </div>

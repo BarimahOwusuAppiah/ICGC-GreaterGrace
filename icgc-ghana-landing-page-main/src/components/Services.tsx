@@ -75,35 +75,35 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           {/* Service Schedule */}
-          <div className="bg-burgundy rounded-3xl p-8 md:p-10 shadow-elevated">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
-                <Clock className="w-6 h-6 text-gold" />
+          <div className="bg-burgundy rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-elevated">
+            <div className="flex items-center gap-3 mb-6 sm:mb-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold/20 flex items-center justify-center">
+                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
               </div>
-              <h3 className="font-display text-2xl font-bold text-cream">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-cream">
                 Service Schedule
               </h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {serviceSchedule.map((schedule, index) => (
-                <div key={index} className="border-b border-gold/20 pb-6 last:border-0 last:pb-0">
-                  <h4 className="text-gold font-semibold text-lg mb-3">
+                <div key={index} className="border-b border-gold/20 pb-4 sm:pb-6 last:border-0 last:pb-0">
+                  <h4 className="text-gold font-semibold text-base sm:text-lg mb-2 sm:mb-3">
                     {schedule.day}
                   </h4>
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     {schedule.services.map((service, sIndex) => (
                       <div
                         key={sIndex}
-                        className="flex items-center justify-between bg-burgundy-dark/50 rounded-xl p-4"
+                        className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-burgundy-dark/50 rounded-lg sm:rounded-xl p-3 sm:p-4 gap-2 sm:gap-0"
                       >
                         <div>
-                          <p className="text-cream font-medium">{service.name}</p>
-                          <p className="text-cream/60 text-sm">{service.type}</p>
+                          <p className="text-cream font-medium text-sm sm:text-base">{service.name}</p>
+                          <p className="text-cream/60 text-xs sm:text-sm">{service.type}</p>
                         </div>
-                        <span className="text-gold font-semibold text-lg">
+                        <span className="text-gold font-semibold text-base sm:text-lg">
                           {service.time}
                         </span>
                       </div>
@@ -114,11 +114,11 @@ const Services = () => {
             </div>
 
             {/* Location */}
-            <div className="mt-8 p-4 bg-gold/10 rounded-xl flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-gold mt-0.5 shrink-0" />
+            <div className="mt-6 sm:mt-8 p-3 sm:p-4 bg-gold/10 rounded-lg sm:rounded-xl flex items-start gap-2 sm:gap-3">
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 shrink-0" />
               <div>
-                <p className="text-cream font-medium">Greater Grace</p>
-                <p className="text-cream/70 text-sm">
+                <p className="text-cream font-medium text-sm sm:text-base">Greater Grace</p>
+                <p className="text-cream/70 text-xs sm:text-sm">
                   Bubiashie-Control, Accra, Ghana
                 </p>
               </div>
@@ -127,29 +127,29 @@ const Services = () => {
 
           {/* Ministries */}
           <div>
-            <h3 className="font-display text-2xl font-bold text-cream mb-8">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-cream mb-6 sm:mb-8">
               Our Ministries
             </h3>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               {ministries.map((ministry, index) => (
                 <div
                   key={index}
-                  className="bg-burgundy/50 backdrop-blur-sm rounded-2xl p-6 hover-lift hover-glow border border-gold/10 group"
+                  className="bg-burgundy/50 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 hover-lift hover-glow border border-gold/10 group"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gold/20 flex items-center justify-center mb-4 group-hover:bg-gold/30 transition-colors">
-                    <ministry.icon className="w-7 h-7 text-gold" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gold/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-gold/30 transition-colors">
+                    <ministry.icon className="w-6 h-6 sm:w-7 sm:h-7 text-gold" />
                   </div>
-                  <h4 className="text-cream font-semibold text-lg mb-2">
+                  <h4 className="text-cream font-semibold text-base sm:text-lg mb-2">
                     {ministry.name}
                   </h4>
-                  <p className="text-cream/70 text-sm leading-relaxed">
+                  <p className="text-cream/70 text-xs sm:text-sm leading-relaxed">
                     {ministry.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <Button variant="hero" size="lg" className="mt-8 w-full sm:w-auto">
+            <Button variant="hero" size="lg" className="mt-6 sm:mt-8 w-full sm:w-auto text-sm sm:text-base">
               All are humbly invited into all ministries
             </Button>
           </div>

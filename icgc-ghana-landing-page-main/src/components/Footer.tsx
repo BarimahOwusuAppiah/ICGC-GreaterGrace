@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
 // Logo component that tries multiple formats
 const LogoImage = () => {
@@ -38,40 +38,41 @@ const LogoImage = () => {
 
 const Footer = () => {
   const socials = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Facebook, href: "https://web.facebook.com/share/g/17K36hkCPU/", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/icgcgreatergracetemple?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
     { icon: Youtube, href: "#", label: "YouTube" },
   ];
 
   return (
     <footer className="bg-foreground text-cream">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               <LogoImage />
               <div>
-                <h3 className="font-display font-semibold text-lg">ICGC</h3>
-                <p className="text-cream/60 text-xs">
-                  International Central Gospel Church
+                <h3 className="font-display font-semibold text-base sm:text-lg">ICGC</h3>
+                <p className="text-cream/60 text-[10px] sm:text-xs">
+                  ICGC Greater Grace Temple
                 </p>
               </div>
             </div>
-            <p className="text-cream/70 text-sm leading-relaxed mb-6">
+            <p className="text-cream/70 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
               Transforming lives through faith, empowering believers to discover
               their purpose, and building a community of excellence.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               {socials.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               ))}
             </div>
@@ -79,22 +80,22 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6">
+            <h4 className="font-display font-semibold text-base sm:text-lg mb-4 sm:mb-6">
               Stay Connected
             </h4>
-            <p className="text-cream/70 text-sm mb-4">
+            <p className="text-cream/70 text-xs sm:text-sm mb-3 sm:mb-4">
               Subscribe to our newsletter for updates, devotionals, and event
               announcements.
             </p>
-            <form className="flex gap-2">
+            <form className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/50 text-sm focus:outline-none focus:border-gold"
+                className="flex-1 px-3 sm:px-4 py-2 rounded-lg bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/50 text-xs sm:text-sm focus:outline-none focus:border-gold"
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-gold text-burgundy-dark rounded-lg font-medium text-sm hover:bg-gold-light transition-colors"
+                className="px-4 py-2 bg-gold text-burgundy-dark rounded-lg font-medium text-xs sm:text-sm hover:bg-gold-light transition-colors whitespace-nowrap"
               >
                 Subscribe
               </button>
@@ -105,10 +106,10 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-cream/10">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/60">
-            <p>© 2024 International Central Gospel Church. All rights reserved.</p>
-            <div className="flex gap-6">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-cream/60 text-center md:text-left">
+            <p>© 2025 ICGC Greater Grace Temple. All rights reserved.</p>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               <a href="#" className="hover:text-gold transition-colors">
                 Privacy Policy
               </a>
