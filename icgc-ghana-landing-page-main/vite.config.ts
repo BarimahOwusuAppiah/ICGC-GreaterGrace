@@ -5,9 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Base path for deployment - supports subdirectory deployments
-  // Use VITE_BASE_URL env variable or default to "/"
-  base: process.env.VITE_BASE_URL || "/",
+  // Base path for deployment
+  // Use VITE_BASE_URL env variable for subdirectory deployments
+  // Default to "./" for relative paths (works in any deployment)
+  base: process.env.VITE_BASE_URL || "./",
   
   server: {
     host: "::",
@@ -35,13 +36,13 @@ export default defineConfig(({ mode }) => ({
     // Output directory for built files
     outDir: "dist",
     
-    // Subdirectory for assets within dist
-    assetsDir: "assets",
+    // Empty assetsDir to put assets at root of dist
+    assetsDir: "",
     
     // Generate source maps for debugging (set to false for production)
-    sourcemap: mode === "development",
+    sourcemap: false,
     
-    // Minify the output using esbuild (default, no additional install needed)
+    // Minify the output using esbuild
     minify: "esbuild",
     
     // Chunk size warning limit
@@ -55,54 +56,49 @@ export default defineConfig(({ mode }) => ({
       // Output configuration
       output: {
         // Manual chunking for vendor libraries
-        manualChunks: {
-          // React and related libraries
-          "vendor-react": [
-            "react",
-            "react-dom",
-            "react-router-dom",
-          ],
-          // Radix UI components
-          "vendor-radix": [
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-tooltip",
-            "@radix-ui/react-navigation-menu",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-slider",
-            "@radix-ui/react-switch",
-            "@radix-ui/react-checkbox",
-            "@radix-ui/react-radio-group",
-            "@radix-ui/react-select",
-            "@radix-ui/react-toast",
-            "@radix-ui/react-progress",
-            "@radix-ui/react-separator",
-          ],
-          // UI utility libraries
-          "vendor-ui": [
-            "class-variance-authority",
-            "clsx",
-            "tailwind-merge",
-            "cmdk",
-            "embla-carousel-react",
-          ],
-          // Data and form libraries
-          "vendor-data": [
-            "@tanstack/react-query",
-            "react-hook-form",
-            "@hookform/resolvers",
-            "zod",
-            "date-fns",
-          ],
-          // Charts library
-          "vendor-charts": [
-            "recharts",
-          ],
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            // React core
+            if (
+              id.includes("react") ||
+              id.includes("react-dom") ||
+              id.includes("react-router")
+            ) {
+              return "vendor-react";
+            }
+            // Radix UI components
+            if (id.includes("@radix-ui")) {
+              return "vendor-radix";
+            }
+            // UI utilities
+            if (
+              id.includes("class-variance-authority") ||
+              id.includes("clsx") ||
+              id.includes("tailwind-merge") ||
+              id.includes("cmdk") ||
+              id.includes("embla-carousel") ||
+              id.includes("lucide-react")
+            ) {
+              return "vendor-ui";
+            }
+            // Data/form libraries
+            if (
+              id.includes("@tanstack") ||
+              id.includes("react-hook-form") ||
+              id.includes("@hookform") ||
+              id.includes("zod") ||
+              id.includes("date-fns")
+            ) {
+              return "vendor-data";
+            }
+            // Charts
+            if (id.includes("recharts") || id.includes("d3")) {
+              return "vendor-charts";
+            }
+          }
         },
         
-        // Asset file names with content hashes for cache busting
+        // Asset file names with content hashes
         assetFileNames: "assets/[name]-[hash][extname]",
         
         // Chunk file names with content hashes
