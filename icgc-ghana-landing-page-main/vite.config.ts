@@ -7,8 +7,8 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   // Base path for deployment
   // Use VITE_BASE_URL env variable for subdirectory deployments
-  // Default to "./" for relative paths (works in any deployment)
-  base: process.env.VITE_BASE_URL || "./",
+  // Default to "/" for Vercel/Netlify (absolute paths work best on these platforms)
+  base: process.env.VITE_BASE_URL || "/",
   
   server: {
     host: "::",
